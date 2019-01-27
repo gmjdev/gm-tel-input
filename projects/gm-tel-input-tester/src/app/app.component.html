@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<div class="container">
+  <div class="col-md-8">
+    <form>
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label for="contactNbr">Contact Number</label>
+          <gm-tel-input [value]="telNumber" [invalidFormatMsg]="'Invalid Contact number format'" [invalidTelMsg]="'Invalid Contact number'"
+            [formControlSrc]="telNumberCtrl" id="contactNbr"></gm-tel-input>
+        </div>
+      </div>
+      <p>Contact Number: {{telNumber | json}}</p>
+    </form>
+  </div>
+</div>

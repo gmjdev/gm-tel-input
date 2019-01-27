@@ -1,0 +1,33 @@
+{
+  "name": "gm-tel-input-lib",
+  "version": "1.0.0",
+  "description": "Basic mobile number input library based on latest Angular",
+  "private": true,
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/forms": "^7.0.0",
+    "bootstrap": "^4.2.1",
+    "flag-icon-css": "^3.2.1",
+    "google-libphonenumber": "^3.2.2",
+    "jquery": "^3.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmjdev/gm-tel-input.git"
+  },
+  "keywords": [
+    "angular",
+    "mobile",
+    "input",
+    "contact",
+    "number",
+    "input"
+  ],
+  "author": "gmjdev",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gmjdev/gm-tel-input/issues"
+  },
+  "homepage": "https://github.com/gmjdev/gm-tel-input#readme"
+}

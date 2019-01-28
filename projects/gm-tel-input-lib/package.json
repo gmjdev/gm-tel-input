@@ -24,7 +24,10 @@
     "number",
     "input"
   ],
-  "author": "gmjdev",
+  "author": {
+    "name": "gmjdev",
+    "email": "gm.jdev@gmail.com"
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/gmjdev/gm-tel-input/issues"

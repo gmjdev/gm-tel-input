@@ -8,9 +8,13 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "copy-license": "copyfiles .\\LICENSE .\\dist\\gm-tel-input-lib",
+    "copy-readme": "copyfiles .\\README.md .\\dist\\gm-tel-input-lib",
+    "copy-files": "npm run copy-license && npm run copy-readme",
     "build_lib": "ng build gm-tel-input-lib",
     "npm_pack": "cd dist/gm-tel-input-lib && npm pack",
-    "package": "npm run build_lib && npm run npm_pack"
+	"copy-assets": "copyfiles readme-assets/*.* .\\dist\\gm-tel-input-lib",
+    "package": "npm run build_lib && npm run copy-assets && npm run copy-files && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +30,6 @@
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
     "flag-icon-css": "^3.2.1",
-    "gm-tel-input-lib": "file:dist/gm-tel-input-lib/gm-tel-input-lib-1.0.0.tgz",
     "google-libphonenumber": "^3.2.2",
     "jquery": "^3.3.1",
     "rxjs": "~6.3.3",
@@ -38,10 +41,11 @@
     "@angular/cli": "~7.0.6",
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "copyfiles": "^2.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
@@ -56,5 +60,26 @@
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmjdev/gm-tel-input.git"
+  },
+  "keywords": [
+    "angular",
+    "mobile",
+    "input",
+    "contact",
+    "number",
+    "input"
+  ],
+  "author": {
+    "name": "gmjdev",
+    "email": "gm.jdev@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gmjdev/gm-tel-input/issues"
+  },
+  "homepage": "https://github.com/gmjdev/gm-tel-input#readme"
 }

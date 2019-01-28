@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { pho } from 'gm-tel-input-lib';
+import { phoneNumberValidator } from 'gm-tel-input-lib';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,6 @@ import { pho } from 'gm-tel-input-lib';
 })
 export class AppComponent {
   title = 'gm-tel-input-tester';
-  telNumberCtrl: FormControl = new FormControl('', [phoneNumberValidatorFn()]);
+  telNumberCtrl: FormControl = new FormControl('', [phoneNumberValidator()]);
   telNumber = {};
 }

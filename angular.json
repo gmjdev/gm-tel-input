@@ -3,33 +3,33 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gm-tel-input-lib": {
-      "root": "projects/gm-tel-input-lib",
-      "sourceRoot": "projects/gm-tel-input-lib/src",
+    "gm-tel-input": {
+      "root": "projects/gm-tel-input",
+      "sourceRoot": "projects/gm-tel-input/src",
       "projectType": "library",
       "prefix": "gm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/gm-tel-input-lib/tsconfig.lib.json",
-            "project": "projects/gm-tel-input-lib/ng-package.json"
+            "tsConfig": "projects/gm-tel-input/tsconfig.lib.json",
+            "project": "projects/gm-tel-input/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/gm-tel-input-lib/src/test.ts",
-            "tsConfig": "projects/gm-tel-input-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/gm-tel-input-lib/karma.conf.js"
+            "main": "projects/gm-tel-input/src/test.ts",
+            "tsConfig": "projects/gm-tel-input/tsconfig.spec.json",
+            "karmaConfig": "projects/gm-tel-input/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/gm-tel-input-lib/tsconfig.lib.json",
-              "projects/gm-tel-input-lib/tsconfig.spec.json"
+              "projects/gm-tel-input/tsconfig.lib.json",
+              "projects/gm-tel-input/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -171,5 +171,5 @@
       }
     }
   },
-  "defaultProject": "gm-tel-input-lib"
+  "defaultProject": "gm-tel-input"
 }

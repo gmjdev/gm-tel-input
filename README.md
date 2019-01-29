@@ -9,7 +9,7 @@ An Angular based module providing support for international mobile number input 
 #### Install the package via `npm`:
 
 ```sh
-npm install --save gm-tel-input-lib
+npm install --save gm-tel-input
 ```
 
 Install library dependencies
@@ -25,7 +25,7 @@ npm install --save google-libphonenumber
 Add and import ```GmTelInputModule``` module into application
 
 ```javascript
-import { GmTelInputModule } from 'gm-tel-input-lib';
+import { GmTelInputModule } from 'gm-tel-input';
 
 imports: [
     GmTelInputModule.forRoot()
@@ -44,7 +44,7 @@ telNumberCtrl: FormControl = new FormControl('', []);
 telNumber = {};
 ```
 
-If you are interested to have basic phone number validation based on [google-libphonenumber](https://www.npmjs.com/package/google-libphonenumber), kindly update ```FormControl``` initialization definition as below:
+If you are interested to have basic phone number validation based on [google-libphonenumber](https://www.npmjs.com/package/google-libphonenumber), kindly import `phoneNumberValidator` from `gm-tel-input` library and update ```FormControl``` initialization definition as below :
 ```javascript
 telNumberCtrl: FormControl = new FormControl('', [phoneNumberValidator()]);
 ```
@@ -57,7 +57,8 @@ Add following CSS and Script files to your **`angular.json`** file
   "node_modules/bootstrap/dist/css/bootstrap.min.css"
 ],
 "scripts": [
-  "node_modules/jquery/dist/jquery.min.js", "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
 ]
 ```
 

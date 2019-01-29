@@ -1,5 +1,5 @@
 {
-  "name": "gm-tel-input",
+  "name": "gm-tel-input-lib",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,12 +8,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "copy-license": "copyfiles .\\LICENSE .\\dist\\gm-tel-input-lib",
-    "copy-readme": "copyfiles .\\README.md .\\dist\\gm-tel-input-lib",
+    "copy-license": "copyfiles .\\LICENSE .\\dist\\gm-tel-input",
+    "copy-readme": "copyfiles .\\README.md .\\dist\\gm-tel-input",
     "copy-files": "npm run copy-license && npm run copy-readme",
-    "build_lib": "ng build gm-tel-input-lib",
-    "npm_pack": "cd dist/gm-tel-input-lib && npm pack",
-	"copy-assets": "copyfiles readme-assets/*.* .\\dist\\gm-tel-input-lib",
+    "build_lib": "ng build gm-tel-input",
+    "npm_pack": "cd dist/gm-tel-input && npm pack",
+    "copy-assets": "copyfiles readme-assets/*.* .\\dist\\gm-tel-input",
     "package": "npm run build_lib && npm run copy-assets && npm run copy-files && npm run npm_pack"
   },
   "private": true,
@@ -71,7 +71,8 @@
     "input",
     "contact",
     "number",
-    "input"
+    "input",
+    "gm-tel-input"
   ],
   "author": {
     "name": "gmjdev",

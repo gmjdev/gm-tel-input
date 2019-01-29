@@ -1,8 +1,8 @@
 {
-  "name": "gm-tel-input-lib",
+  "name": "gm-tel-input",
   "version": "1.0.0",
   "description": "Basic mobile number input library based on latest Angular",
-  "private": true,
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
@@ -22,7 +22,8 @@
     "input",
     "contact",
     "number",
-    "input"
+    "input",
+    "gm-input-lib"
   ],
   "author": {
     "name": "gmjdev",

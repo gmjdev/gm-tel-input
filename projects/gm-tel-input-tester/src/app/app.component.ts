@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { phoneNumberValidator } from 'gm-tel-input-lib';
+import { phoneNumberValidator } from 'gm-tel-input';
 
 @Component({
   selector: 'app-root',

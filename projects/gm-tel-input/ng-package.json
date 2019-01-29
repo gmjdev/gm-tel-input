@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/gm-tel-input-lib",
+  "dest": "../../dist/gm-tel-input",
   "lib": {
     "entryFile": "src/public_api.ts"
   },

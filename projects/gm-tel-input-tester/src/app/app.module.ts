@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { GmTelInputModule } from 'gm-tel-input-lib';
+import { GmTelInputModule } from 'gm-tel-input';
 
 import { AppComponent } from './app.component';
 

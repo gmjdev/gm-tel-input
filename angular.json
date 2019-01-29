@@ -1,0 +1,175 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "gm-tel-input": {
+      "root": "projects/gm-tel-input",
+      "sourceRoot": "projects/gm-tel-input/src",
+      "projectType": "library",
+      "prefix": "gm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gm-tel-input/tsconfig.lib.json",
+            "project": "projects/gm-tel-input/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gm-tel-input/src/test.ts",
+            "tsConfig": "projects/gm-tel-input/tsconfig.spec.json",
+            "karmaConfig": "projects/gm-tel-input/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gm-tel-input/tsconfig.lib.json",
+              "projects/gm-tel-input/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "gm-tel-input-tester": {
+      "root": "projects/gm-tel-input-tester/",
+      "sourceRoot": "projects/gm-tel-input-tester/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/gm-tel-input-tester",
+            "index": "projects/gm-tel-input-tester/src/index.html",
+            "main": "projects/gm-tel-input-tester/src/main.ts",
+            "polyfills": "projects/gm-tel-input-tester/src/polyfills.ts",
+            "tsConfig": "projects/gm-tel-input-tester/tsconfig.app.json",
+            "assets": [
+              "projects/gm-tel-input-tester/src/favicon.ico",
+              "projects/gm-tel-input-tester/src/assets"
+            ],
+            "styles": [
+			  "node_modules/flag-icon-css/css/flag-icon.min.css",
+			  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+			  "projects/gm-tel-input-tester/src/styles.css"
+            ],
+            "scripts": [
+			  "node_modules/jquery/dist/jquery.min.js",
+			  "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+			]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/gm-tel-input-tester/src/environments/environment.ts",
+                  "with": "projects/gm-tel-input-tester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gm-tel-input-tester:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gm-tel-input-tester:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gm-tel-input-tester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gm-tel-input-tester/src/test.ts",
+            "polyfills": "projects/gm-tel-input-tester/src/polyfills.ts",
+            "tsConfig": "projects/gm-tel-input-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/gm-tel-input-tester/karma.conf.js",
+            "styles": [
+              "projects/gm-tel-input-tester/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/gm-tel-input-tester/src/favicon.ico",
+              "projects/gm-tel-input-tester/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gm-tel-input-tester/tsconfig.app.json",
+              "projects/gm-tel-input-tester/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "gm-tel-input-tester-e2e": {
+      "root": "projects/gm-tel-input-tester-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/gm-tel-input-tester-e2e/protractor.conf.js",
+            "devServerTarget": "gm-tel-input-tester:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gm-tel-input-tester:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/gm-tel-input-tester-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "gm-tel-input"
+}

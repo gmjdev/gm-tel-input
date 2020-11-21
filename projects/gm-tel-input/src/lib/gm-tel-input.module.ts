@@ -17,7 +17,7 @@ import { GmTelInputComponent } from './gm-tel-input.component';
   providers: [],
 })
 export class GmTelInputModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<GmTelInputModule> {
     return {
       ngModule: GmTelInputModule,
       providers: []

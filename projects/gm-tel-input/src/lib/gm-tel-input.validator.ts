@@ -8,7 +8,7 @@ export function phoneNumberValidator(): ValidatorFn {
     const value = control.value;
 
     if (value) {
-      const telNumberPattern = /^\+([0-9]+\s)*[0-9]+$/;
+      const telNumberPattern = /^[\+]{0,1}([0-9]+\s)*[0-9]+/g;
       if (!telNumberPattern.test(value)) {
         return { 'invalidFormat': { value: control.value } };
       }

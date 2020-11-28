@@ -11,4 +11,6 @@ export class AppComponent {
   title = 'gm-tel-input-tester';
   telNumberCtrl: FormControl = new FormControl('', [phoneNumberValidator()]);
   telNumber = {};
+  telNumberCtrl1: FormControl = new FormControl('', [phoneNumberValidator()]);
+  telNumber1 = {};
 }

@@ -1,5 +1,5 @@
 <div class="gm-tel-input-container">
-  <div class="input-group">
+  <div class="input-group" *ngIf="!separateCountry">
     <div class="input-group-prepend">
       <button class="btn btn-primary btn-md z-depth-0 dropdown-toggle" type="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
@@ -17,6 +17,25 @@
     </div>
     <input type="text" [id]="id" class="form-control" autocomplete="off" (keypress)="onInputKeyPress($event)" (focus)="onFocus($event)"
       [formControl]="formControlSrc" [placeholder]="selectedCountry.placeHolder" #mobileInput>
+  </div>
+  <div class="form-group flex-row separate-country" *ngIf="separateCountry">
+    <div class="d-flex">
+      <button class="btn btn-primary btn-md z-depth-0 dropdown-toggle" type="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i class="flag-icon" style="display: inline-block;" [ngClass]="selectedCountry.flagClass"></i><span class="ml-1">(+{{selectedCountry.dialCode}})</span>
+      </button>
+      <ul class="px-2 pb-2 country-list dropdown-menu">
+        <li class="country" *ngFor="let country of allCountries" (click)="onCountrySelect(country, mobileInput)">
+          <div class="d-flex flex-row align-items-center py-2">
+            <div class="mr-2"><i class="flag-icon" [ngClass]="country.flagClass"></i></div>
+            <div class="mr-2"><span class="country-name">{{country.name}}</span></div>
+            <div><span class="dial-code">(+{{country.dialCode}})</span></div>
+          </div>
+        </li>
+      </ul>
+      <input type="text" [id]="id" class="ml-2 form-control flex-fill" autocomplete="off" (keypress)="onInputKeyPress($event)" (focus)="onFocus($event)"
+      [formControl]="formControlSrc" [placeholder]="selectedCountry.placeHolder" #mobileInput>
+    </div>
   </div>
   <div class="input-feedback-container">
     <div class="invalid" *ngIf="f.invalid && (f.dirty || f.touched) && f.errors.invalidFormat">{{invalidFormatMsg}}</div>

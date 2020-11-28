@@ -4,6 +4,8 @@ An Angular based module providing support for international mobile number input 
 
 ![alt](readme-assets/screen-shot-1.png)
 
+![alt](readme-assets/screen-shot-2.png)
+
 ## Installation
 
 #### Install the package via `npm`:
@@ -66,14 +68,24 @@ Add following CSS and Script files to your **`angular.json`** file
 
 | Options          | Type              | Default                                      | Description                                                |
 | ---------------- | ----------------- | -------------------------------------------- | ---------------------------------------------------------- |
-| value            | ```object```      | {<br>countryCode:'',<br>mobileNumber:''<br>} | Object containing selected country code and mobile number. |
+| value            | ```object```      | {<br>countryCode:'',<br>mobileNumber:''<br>formatted:'' <br>} | Object containing selected country code and mobile number. |
 | invalidFormatMsg | ```string```      | ```''```                                     | Validation error message for invalid input format.         |
 | invalidTelMsg    | ```string```      | ```''```                                     | Validation error message for incorrect input number.       |
 | formControlSrc   | ```FormControl``` |                                              | Instance of ```FormControl``` to be used                   |
 | id               | ```string```      | contactNbr                                   | Id to be used in native HTML input element                 |
+| separateCountry  | ```boolean```     | false                                        | Flag which renders country coomponent as separate component|
 
 ## Tests
 Coming up
+
+## Changelog
+
+Below are few latest change logs.
+
+### [1.1.0] - 2020-11-29
+- Updated Angular libraries to Angular 11
+- Added Support for rendering Country Code and Mobile number input as separate fields
+
 
 ## Acknowledgments / Attributions
 - Country & Flag images from [flag-icon-css](https://github.com/lipis/flag-icon-css) 

@@ -1,8 +1,10 @@
 import { Directive } from "@angular/core";
-import { NG_VALIDATORS, Validator, AbstractControl, ValidatorFn } from "@angular/forms";
+import { NG_VALIDATORS, Validator, AbstractControl, ValidatorFn, FormArray } from "@angular/forms";
 import * as googlePhoneLib from 'google-libphonenumber';
 
 const phoneUtil = googlePhoneLib.PhoneNumberUtil.getInstance();
+const AsYouTypeFormatter = googlePhoneLib.AsYouTypeFormatter;
+const PNF = googlePhoneLib.PhoneNumberFormat;
 
 
 /** A hero's name can't match the given regular expression */
@@ -28,6 +30,14 @@ export function phoneNumberValidatorFn(): ValidatorFn {
   };
 }
 
+export function formatInputAsInternational( country:string, number: string ) : string {
+  try {
+    const parseNbr = phoneUtil.parseAndKeepRawInput(number, country.toUpperCase());
+    return phoneUtil.format(parseNbr, PNF.NATIONAL);
+  } catch(e) { 
+    return '';
+  }
+}
 // @Directive({
 //   selector: '[appForbiddenName]',
 //   providers: [{ provide: NG_VALIDATORS, useExisting: GmTelInputValidator, multi: true }]

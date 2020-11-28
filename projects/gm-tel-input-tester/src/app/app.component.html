@@ -5,17 +5,20 @@
   </h1>
 </div>
 
-<div class="container">
-  <div class="col-md-8">
-    <form>
-      <div class="form-row">
+<div class="container mt-5">
+      <div class="row">
         <div class="col-md-12 mb-3">
-          <label for="contactNbr">Contact Number</label>
+          <h3>Mobile Number Input with Combine Country Code</h3>
           <gm-tel-input [value]="telNumber" [invalidFormatMsg]="'Invalid Contact number format'" [invalidTelMsg]="'Invalid Contact number'"
             [formControlSrc]="telNumberCtrl" id="contactNbr11"></gm-tel-input>
+          <p>Contact Number: {{telNumber | json}}</p>
         </div>
+
+        <div class="col-md-12 mb-3">
+          <h3>Mobile Number Input With Separate Country Code</h3>
+          <gm-tel-input [value]="telNumber1" [separateCountry]="true" [invalidFormatMsg]="'Invalid Contact number format'" [invalidTelMsg]="'Invalid Contact number'"
+            [formControlSrc]="telNumberCtrl1" id="contactNbr12"></gm-tel-input>
+          <p>Contact Number: {{telNumber1 | json}}</p>
+          </div>
       </div>
-      <p>Contact Number: {{telNumber | json}}</p>
-    </form>
   </div>
-</div>

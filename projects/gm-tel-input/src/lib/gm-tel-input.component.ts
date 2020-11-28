@@ -3,6 +3,7 @@ import { CountryCode } from './modal/country-code.modal';
 import { Country } from './modal/country.modal';
 import { FormControl } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import {formatInputAsInternational} from './gm-tel-input.directive';
 
 @Component({
   selector: 'gm-tel-input',
@@ -14,6 +15,7 @@ export class GmTelInputComponent implements OnInit {
   @Input() value;
   @Output() valueChange: EventEmitter<any> = new EventEmitter<any>();
   @Input() id: String = 'contactNbr';
+  @Input() separateCountry = false;
   @Input() formControlSrc: FormControl;
   _invalidFormatMsg: string;
   _invalidTelMsg: string;
@@ -24,7 +26,7 @@ export class GmTelInputComponent implements OnInit {
   constructor(
     private countryCodeData: CountryCode
   ) {
-    this.fetchCountryData();
+    
   }
 
   get f() {
@@ -57,8 +59,10 @@ export class GmTelInputComponent implements OnInit {
         mobileNumber: ''
       };
     }
+    this.fetchCountryData();
     this.selectedCountry = this.allCountries[0];
     this.onChanges();
+    
   }
 
   private onChanges(): void {
@@ -70,8 +74,10 @@ export class GmTelInputComponent implements OnInit {
   }
 
   private updateModalValue(val: string): void {
-    this.value.countryCode = this.getDialCodeOnly().trim();
+    this.value.countryCode = this.getDialCodeOnly().trim();
     this.value.mobileNumber = this.getMobileNumberOnly(val).trim();
+    const countryNbr = this.value.countryCode.concat(this.value.mobileNumber);
+    this.value.formatted = formatInputAsInternational(this.selectedCountry.iso2, countryNbr); 
     this.valueChange.emit(this.value);
   }
 
@@ -88,11 +94,12 @@ export class GmTelInputComponent implements OnInit {
 
     const tokens: string[] = contactNbr.split(' ') || [];
     if (tokens.length === 2 && tokens[1].length > 0) {
-      this.updateFormControlValue(dialCode.concat(tokens[1]));
+      const val = !this.separateCountry ? dialCode.concat(tokens[1]) : contactNbr; 
+      this.updateFormControlValue(val);
       return;
     }
 
-    contactNbr = dialCode;
+    contactNbr = this.separateCountry ? contactNbr : dialCode;
     element.focus();
     const currentLength = dialCode.length + 1;
     if (element.setSelectionRange) {
@@ -112,7 +119,7 @@ export class GmTelInputComponent implements OnInit {
   }
 
   public onCountrySelect(country: Country, el): void {
-    this.selectedCountry = country;
+    this.selectedCountry = country;      
     this.setCountryCode(el);
   }
 
@@ -133,7 +140,7 @@ export class GmTelInputComponent implements OnInit {
       country.priority = +c[3] || 0;
       country.areaCode = +c[4] || null;
       country.flagClass = 'flag-icon-' + country.iso2.toLocaleLowerCase();
-      country.placeHolder = '+' + c[2].toString().concat(' ').concat('1111111111');
+      country.placeHolder = this.separateCountry ? 'XXXXXXXXXX' : '+' + c[2].toString().concat(' ').concat('XXXXXXXXXX');
       this.allCountries.push(country);
     });
   }

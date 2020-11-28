@@ -46,4 +46,10 @@ $input-valid-feedback-color:#28a745;
       color: $input-invalid-feedback-color;
     }
   }
+
+  .separate-country{
+    input[type="text"]{
+      height: calc(1.5em + .75rem + 2px);
+    }
+  }
 }

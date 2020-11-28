@@ -1,6 +1,6 @@
 {
   "name": "gm-tel-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Basic mobile number input library based on latest Angular",
   "private": false,
   "peerDependencies": {

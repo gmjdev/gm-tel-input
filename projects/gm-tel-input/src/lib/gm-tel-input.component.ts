@@ -25,9 +25,7 @@ export class GmTelInputComponent implements OnInit {
 
   constructor(
     private countryCodeData: CountryCode
-  ) {
-    
-  }
+  ) { }
 
   get f() {
     return this.formControlSrc;
@@ -62,7 +60,6 @@ export class GmTelInputComponent implements OnInit {
     this.fetchCountryData();
     this.selectedCountry = this.allCountries[0];
     this.onChanges();
-    
   }
 
   private onChanges(): void {
@@ -77,7 +74,7 @@ export class GmTelInputComponent implements OnInit {
     this.value.countryCode = this.getDialCodeOnly().trim();
     this.value.mobileNumber = this.getMobileNumberOnly(val).trim();
     const countryNbr = this.value.countryCode.concat(this.value.mobileNumber);
-    this.value.formatted = formatInputAsInternational(this.selectedCountry.iso2, countryNbr); 
+    this.value.formatted = formatInputAsInternational(this.selectedCountry.iso2, countryNbr);
     this.valueChange.emit(this.value);
   }
 
@@ -94,7 +91,7 @@ export class GmTelInputComponent implements OnInit {
 
     const tokens: string[] = contactNbr.split(' ') || [];
     if (tokens.length === 2 && tokens[1].length > 0) {
-      const val = !this.separateCountry ? dialCode.concat(tokens[1]) : contactNbr; 
+      const val = !this.separateCountry ? dialCode.concat(tokens[1]) : contactNbr;
       this.updateFormControlValue(val);
       return;
     }
@@ -119,7 +116,7 @@ export class GmTelInputComponent implements OnInit {
   }
 
   public onCountrySelect(country: Country, el): void {
-    this.selectedCountry = country;      
+    this.selectedCountry = country;
     this.setCountryCode(el);
   }
 

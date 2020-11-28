@@ -20,7 +20,7 @@ export class GmTelInputModule {
   static forRoot(): ModuleWithProviders<GmTelInputModule> {
     return {
       ngModule: GmTelInputModule,
-      providers: []
-    }
+      providers: [],
+    };
   }
 }

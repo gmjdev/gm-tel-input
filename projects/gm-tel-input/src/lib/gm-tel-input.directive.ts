@@ -1,9 +1,7 @@
-import { Directive } from "@angular/core";
-import { NG_VALIDATORS, Validator, AbstractControl, ValidatorFn, FormArray } from "@angular/forms";
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 import * as googlePhoneLib from 'google-libphonenumber';
 
 const phoneUtil = googlePhoneLib.PhoneNumberUtil.getInstance();
-const AsYouTypeFormatter = googlePhoneLib.AsYouTypeFormatter;
 const PNF = googlePhoneLib.PhoneNumberFormat;
 
 
@@ -30,24 +28,11 @@ export function phoneNumberValidatorFn(): ValidatorFn {
   };
 }
 
-export function formatInputAsInternational( country:string, number: string ) : string {
+export function formatInputAsInternational( country: string, number: string ): string {
   try {
-    const parseNbr = phoneUtil.parseAndKeepRawInput(number, country.toUpperCase());
+    const parseNbr = phoneUtil.parseAndKeepRawInput( number, country.toUpperCase());
     return phoneUtil.format(parseNbr, PNF.NATIONAL);
-  } catch(e) { 
+  } catch (e) {
     return '';
   }
 }
-// @Directive({
-//   selector: '[appForbiddenName]',
-//   providers: [{ provide: NG_VALIDATORS, useExisting: GmTelInputValidator, multi: true }]
-// })
-// export class GmTelInputValidator implements Validator {
-
-//   validate(control: AbstractControl): { [key: string]: any } | null {
-//     if (this.validTelNumber) {
-//       return phoneNumberValidatorFn()(control);
-//     }
-//     return null;
-//   }
-// }
